@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css\stil.css" />
+    <title>Autoshop - Servisi</title>
+    <link rel="shortcut icon" href="image\logo1.png">
+</head>
+<body>
+<!-- NAVIGATION BAR -->
+<nav class="my-navbar navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="Pocetna.html"><img class="logo" src="image/logo.png" width="250px"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="Pocetna.html">Pocetna</a></li>
+                <li><a href="Servisi.html">Servisi</a></li>
+                <li><a href="Delovi.html">Delovi</a></li>
+                <li><a href="TehnickaPodrska.html">Tehnicka podrska</a></li>
+                <li><a href="Kontakt.html">Kontakt</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<!-- /NAVIGATION BAR -->
+<!-- SERVICES -->
+<div class="row" style="background-color: #e0e0e0;">
+        <div class="col-lg-11 col-lg-offset-1">
+            <h2><b>SERVISI</b></h2>
+        </div>
+</div>
+<br><br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4"  style="text-align: center;">
+            <a href="Servis1.html"><img src="image/s1.jpg"></a>
+            <font face="Arial" size="5"><b>DIJAGNOSTIKA MOTORA</b></font>
+        </div>
+        <div class="col-lg-4"  style="text-align: center;">
+            <a href="Servis1.html"><img src="image/s2.jpg"></a>
+            <font face="Arial" size="5"><b>ZAMENA ULJA I FILTERA</b></font>
+        </div>
+        <div class="col-lg-4"  style="text-align: center;">
+            <a href="Servis1.html"><img src="image/s3.jpg"></a>
+            <font face="Arial" size="5"><b>SERVIS KAISA I CREVA</b></font>
+        </div><br>
+        <div class="col-lg-4"  style="text-align: center;">
+            <a href="Servis1.html"><img src="image/s4.jpg"></a>
+            <font face="Arial" size="5"><b>KLIMATIZACIJA</b></font>
+        </div>
+        <div class="col-lg-4"  style="text-align: center;">
+            <a href="Servis1.html"><img src="image/s5.jpg"></a>
+            <font face="Arial" size="5"><b>SERVIS KOCNICA</b></font>
+        </div>
+        <div class="col-lg-4"  style="text-align: center;">
+            <a href="Servis1.html"><img src="image/s6.jpg"></a>
+            <font face="Arial" size="5"><b>SERVIS GUMA I FELNI</b></font>
+        </div>
+    </div>
+</div>
+<!-- /SERVICES -->
+<!-- FOOTER -->
+<footer style="background-color: #73767a;"><br>
+<div class="row">
+	<div class="col-lg-2 col-lg-offset-2" style="text-align: center;">
+		<img src="image/f1.jpg"><br><br>
+		<font color="#bababa" size="4">PROKUPLJE 18400<br>UL.USTANICKA 48/14 b</font>
+	</div>
+	<div class="col-lg-2" style="text-align: center;">
+		<img src="image/f2.jpg"><br><br>
+		<font color="#bababa" size="4">RADNO VREME 8h-15h<br>066/000-0000<br>027/000-000</font>
+	</div>
+	<div class="col-lg-2" style="text-align: center;">
+		<img src="image/f3.jpg"><br><br>
+		<font color="#bababa" size="4">RADNO VREME 0h-24h<br>066/000-0000</font>
+	</div>
+	<div class="col-lg-2" style="margin-top: 7px; text-align: center;">
+		<font color="#bababa" size="5">Gde se nalazimo?</font><br>
+		<img src="image/map.jpg" height="120px" width="300px">
+	</div>
+</div><br>
+</footer>
+<!-- /FOOTER -->
+<!-- BACK TO TOP -->
+<script type="text/javascript">
+    // create the back to top button
+    $('body').prepend('<a href="#" class="back-to-top">Back to Top</a>');
+
+    var amountScrolled = 300;
+
+    $(window).scroll(function() {
+        if ( $(window).scrollTop() > amountScrolled ) {
+            $('a.back-to-top').fadeIn('slow');
+        } else {
+            $('a.back-to-top').fadeOut('slow');
+        }
+    });
+
+    $('a.back-to-top, a.simple-back-to-top').click(function() {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 700);
+        return false;
+    });
+</script>
+<!-- /BACK TO TOP -->
+</body>
+</html>

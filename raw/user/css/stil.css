@@ -1,0 +1,59 @@
+.my-navbar{
+	background-color: white;
+	border-radius: 0;
+	border: 0;
+	width: auto;
+}
+
+.my-navbar .navbar-brand{
+	left: 200px;
+}
+.my-navbar .navbar-header{
+	border-color: white;
+}
+.my-navbar .navbar-header .navbar-toggle{
+	background-color: white;
+	font-family: Calibri;
+	margin-top: 30px;
+}
+.my-navbar .collapse{
+	background-color: white;
+	margin-top: 15px;
+	font-family: Calibri;
+	color: #6e6e6e;
+	font-size: 24px;
+}
+.cont1{
+	background-color: #e0e0e0;
+	height: 80px;
+}
+.cont3 .font1{
+	font-family: Arial;
+	size: 18px;
+}
+a.back-to-top {
+	display: none;
+	width: 60px;
+	height: 60px;
+	text-indent: -9999px;
+	position: fixed;
+	z-index: 999;
+	right: 20px;
+	bottom: 20px;
+	background: #1e69b8 url("../image/up.png") no-repeat center 43%;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+}
+
+@media (max-width:767px) {
+	.cont1{
+		display: none;
+	}
+	.cont2 .servis{
+		display: none;
+	}
+	.carousel .item .carousel-caption > h1{
+		display: none;
+	}
+}

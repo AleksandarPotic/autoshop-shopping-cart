@@ -1,0 +1,132 @@
+.my-navbar{
+	background-color: white;
+	border-radius: 0;
+	border: 0;
+	width: auto;
+}
+
+.my-navbar .navbar-brand{
+	left: 200px;
+}
+.my-navbar .navbar-header{
+	border-color: white;
+}
+.my-navbar .navbar-header .navbar-toggle{
+	background-color: white;
+	font-family: Calibri;
+	margin-top: 30px;
+}
+.my-navbar .collapse{
+	background-color: white;
+	margin-top: 15px;
+	font-family: Calibri;
+	color: #6e6e6e;
+	font-size: 24px;
+}
+.cont1{
+	background-color: #e0e0e0;
+	height: 80px;
+}
+.cont3 .font1{
+	font-family: Arial;
+	size: 18px;
+}
+a.back-to-top {
+	display: none;
+	width: 60px;
+	height: 60px;
+	text-indent: -9999px;
+	position: fixed;
+	z-index: 999;
+	right: 20px;
+	bottom: 20px;
+	background: #1e69b8 url("../image/up.png") no-repeat center 43%;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+}
+#id_navbar {
+	margin-top: -15px;
+}
+#id_image {
+	margin-top: -23px;
+	margin-left: 20px;
+}
+@media (max-width:767px) {
+	#id_navbar {
+		margin-top: 0px;
+	}
+	#id_image {
+		margin-top: 0px;
+		margin-left: 0px;
+	}
+	.cont1{
+		display: none;
+	}
+	.cont2 .servis{
+		display: none;
+	}
+	.carousel .item .carousel-caption > h1{
+		display: none;
+	}
+}
+
+/**
+ * The CSS shown here will not be introduced in the Quickstart guide, but shows
+ * how you can use CSS to style your Element's container.
+ */
+.StripeElement {
+	background-color: white;
+	padding: 16px 16px;
+	border: 1px solid #cccccc;
+}
+
+
+.StripeElement--invalid {
+	border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+	background-color: #fefde5 !important;
+}
+#card-errors{
+	color: #fa755a;
+}
+
+.slidecontainer {
+	width: 100%;
+}
+
+.slider {
+	-webkit-appearance: none;
+	width: 100%;
+	height: 15px;
+	border-radius: 5px;
+	background: #d3d3d3;
+	outline: none;
+	opacity: 0.7;
+	-webkit-transition: .2s;
+	transition: opacity .2s;
+}
+
+.slider:hover {
+	opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	background: #1e69b8;
+	cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	background: #1e69b8;
+	cursor: pointer;
+}

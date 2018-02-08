@@ -1,0 +1,1 @@
+Vas kod za popust za kupovinu iznad 2000$ - {{ $coupon->discountCode }}

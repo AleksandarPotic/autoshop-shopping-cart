@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css\stil.css" />
+    <title>Autoshop - Kontakt</title>
+    <link rel="shortcut icon" href="image\logo1.png">
+</head>
+<body>
+<!-- NAVIGATION BAR -->
+<nav class="my-navbar navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="Pocetna.html"><img class="logo" src="image/logo.png" width="250px"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="Pocetna.html">Pocetna</a></li>
+                <li><a href="Servisi.html">Servisi</a></li>
+                <li><a href="Delovi.html">Delovi</a></li>
+                <li><a href="TehnickaPodrska.html">Tehnicka podrska</a></li>
+                <li><a href="Kontakt.html">Kontakt</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<!-- /NAVIGATION BAR -->
+<!-- CONTACT -->
+<div class="row" style="background-color: #e0e0e0;">
+    <div class="col-lg-11 col-lg-offset-1">
+        <h2><b>KONTAKT</b></h2>
+    </div>
+</div>
+<br>
+<div class="container">
+    <div class="embed-responsive embed-responsive-4by3">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2906.5644996958285!2d21.589781615150446!3d43.239589679137694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4755c22478a7f477%3A0xee22c3d541bcd9f4!2z0KPRgdGC0LDQvdC40YfQutCwLCDQn9GA0L7QutGD0L_RmdC1!5e0!3m2!1ssr!2srs!4v1504303771153" width="auto" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+    <br>
+    <form>
+        <div class="col-lg-6">
+            <label>Mozete nas kontaktirati</label>
+            <div class="form-group">
+                <input type="email" class="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Ime">
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" id="exampleInputNickName" aria-describedby="emailHelp" placeholder="Prezime">
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Upisi email">
+                <small id="emailHelp" class="form-text text-muted">Niko nece znati vas e-mail, budite sigurni.</small>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group">
+                <label for="exampleTextarea">Vasa poruka</label>
+                <textarea class="form-control" id="exampleTextarea" rows="6"></textarea>
+            </div>
+        </div>
+        <div class="col-lg-12">
+            <button type="submit" class="btn btn-primary">Posalji</button>
+            <button type="reset" class="btn btn-danger">Izbrisi</button>
+        </div><br>
+    </form><br>
+</div><br>
+</div>
+<!-- /CONTACT -->
+<!-- FOOTER -->
+<footer style="background-color: #73767a;"><br>
+<div class="row">
+	<div class="col-lg-2 col-lg-offset-2" style="text-align: center;">
+		<img src="image/f1.jpg"><br><br>
+		<font color="#bababa" size="4">PROKUPLJE 18400<br>UL.USTANICKA 48/14 b</font>
+	</div>
+	<div class="col-lg-2" style="text-align: center;">
+		<img src="image/f2.jpg"><br><br>
+		<font color="#bababa" size="4">RADNO VREME 8h-15h<br>066/000-0000<br>027/000-000</font>
+	</div>
+	<div class="col-lg-2" style="text-align: center;">
+		<img src="image/f3.jpg"><br><br>
+		<font color="#bababa" size="4">RADNO VREME 0h-24h<br>066/000-0000</font>
+	</div>
+	<div class="col-lg-2" style="margin-top: 7px; text-align: center;">
+		<font color="#bababa" size="5">Gde se nalazimo?</font><br>
+		<img src="image/map.jpg" height="120px" width="300px">
+	</div>
+</div><br>
+</footer>
+<!-- /FOOTER -->
+<!-- BACK TO TOP -->
+<script type="text/javascript">
+    // create the back to top button
+    $('body').prepend('<a href="#" class="back-to-top">Back to Top</a>');
+
+    var amountScrolled = 300;
+
+    $(window).scroll(function() {
+        if ( $(window).scrollTop() > amountScrolled ) {
+            $('a.back-to-top').fadeIn('slow');
+        } else {
+            $('a.back-to-top').fadeOut('slow');
+        }
+    });
+
+    $('a.back-to-top, a.simple-back-to-top').click(function() {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 700);
+        return false;
+    });
+</script>
+<!-- /BACK TO TOP -->
+</body>
+</html>
