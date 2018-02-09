@@ -22,7 +22,7 @@
     @else
         <input type="hidden" name="tax_cart" value="{{ $tax }}">
     @endif
-    <input type="hidden" name="return" id="return" value="{{ route('thanks.index') }}">
+    <input type="hidden" name="return" id="return" value="{{ route('thanks.saveOrder') }}">
 
     <input type="hidden" name="cancel_return" id="cancel_return" value="{{ route('checkout.index') }}">
 

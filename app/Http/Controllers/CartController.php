@@ -57,6 +57,7 @@ class CartController extends Controller
         }
         Cart::add($request->id, $request->name, $request->quantity, $request->price)
             ->associate('App\Product');
+        return view('user.layer.header');
     }
 
     /**

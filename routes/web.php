@@ -23,6 +23,11 @@ Route::post('/coupon','CouponController@store')->name('coupon.store');
 Route::delete('/coupon','CouponController@destroy')->name('coupon.destroy');
 
 Route::get('/thanks','ThanksController@index')->name('thanks.index');
+Route::get('/saveOrder','ThanksController@saveOrder')->name('thanks.saveOrder');
+
+Route::get('/order','OrderController@index')->name('order.index');
+
+Route::post('/homeDelivery','HomeDeliveryController@saveHomeDelivery')->name('homeDelivery.save');
 
 Route::get('/support', function () {
     return view('user.technical_support');

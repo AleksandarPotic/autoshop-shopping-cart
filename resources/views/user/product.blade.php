@@ -78,6 +78,7 @@
                 $.post('http://localhost:8000/cart', {'id': id, 'name': name, 'price': price, 'quantity': qty, '_token': $('input[name=_token]').val()}, function (data) {
                     if (data !== "Greska"){
 
+                        $("#nav_id").html(data);
                         message($("#success"));
                     } else {
                         message($("#danger"));

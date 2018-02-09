@@ -18,6 +18,10 @@ class CheckoutController extends Controller
      */
     public function index()
     {
+        if (Cart::subtotal(0,'','') == 0)
+        {
+            return redirect()->route('cart.index');
+        }
         $percent = 18;
         $discount = session()->get('coupon')['discount'] ?? 0;
         //$subtotal = Cart::subtotal(0,'','');

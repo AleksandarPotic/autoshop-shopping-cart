@@ -1,5 +1,5 @@
 <!-- NAVIGATION BAR -->
-
+<div id="nav_id">
 @if(Auth::guest())
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -60,3 +60,4 @@
     </div><!-- /.container-fluid -->
 </nav>
 <!-- /NAVIGATION BAR -->
+</div>

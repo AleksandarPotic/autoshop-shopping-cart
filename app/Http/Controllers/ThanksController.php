@@ -4,12 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Coupon;
 use App\Order;
+use Illuminate\Support\Facades\Auth;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 
 class ThanksController extends Controller
 {
-    public function index(Request $request)
+    public function index()
+    {
+        return view('user.thanks');
+    }
+    public function saveOrder()
     {
         if (session('coupon')){
             $code = session()->get('coupon')['name'];
@@ -18,18 +23,18 @@ class ThanksController extends Controller
             $discountCode->delete();
             session()->forget('coupon');
         }
-        $cart = Cart::content();
-        $order = new Order();
-        $order->cart = serialize($cart);
-        $order->name = 'Aleksanadr';
-        $order->city = 'Aleksanadr';
-        $order->address = 'Aleksanadr';
-        $order->country = 'Aleksanadr';
-        $order->transaction_id = 'Aleksanadr';
 
-        $order->save();
+        if (!Auth::guest()){
+            $cart = Cart::content();
+            $order = new Order();
+            $order->cart = serialize($cart);
+            $order->user_id = Auth::user()->id;
+            $order->transaction = 'Paypal';
+
+            $order->save();
+        }
 
         Cart::instance('default')->destroy();
-        return view('user.thanks');
+        return redirect()->route('thanks.index');
     }
 }
