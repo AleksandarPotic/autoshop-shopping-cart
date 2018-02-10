@@ -17,7 +17,9 @@ class HomeDeliveryController extends Controller
         $cart = Cart::content();
 
         $homeDelivery = new HomeDelivery();
-        $homeDelivery->user_id = Auth::user()->id;
+        if (!Auth::guest()){
+            $homeDelivery->user_id = Auth::user()->id;
+        }
         $homeDelivery->name = $request->name;
         $homeDelivery->email = $request->email;
         $homeDelivery->mobile = $request->mobile;
