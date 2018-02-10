@@ -129,10 +129,12 @@
                         @endif
                         <h2><b>Dostava kurirskom sluzbom</b></h2>
                         <button type="submit" class="btn btn-primary btn-block">PRIHVATAM</button>
-                        <h2><b>Plati pomocu PayPal-a</b></h2>
-                        @include('user.layer.paypal')
                     </form>
-                    
+                        <form action="">
+                            <h2><b>Plati pomocu PayPal-a</b></h2>
+                            @include('user.layer.paypal')
+                        </form>
+
                         
                 </div>
             </div>

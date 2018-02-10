@@ -25,6 +25,11 @@ class OrderController extends Controller
         return view('user.order', ['orders' => $orders]);
     }
 
+    public function profile()
+    {
+        return view('user.profile');
+    }
+
     public function changeUser(Request $request)
     {
         $id = $request->id;

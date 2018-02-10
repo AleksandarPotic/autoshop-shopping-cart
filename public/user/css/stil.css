@@ -130,3 +130,12 @@ a.back-to-top {
 	background: #1e69b8;
 	cursor: pointer;
 }
+#profile{
+	color: #0c0c0c;
+}
+#profile:link{
+	text-decoration: none;
+}
+#profile:hover{
+	color: slategray;
+}

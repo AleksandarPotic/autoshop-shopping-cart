@@ -24,16 +24,6 @@ class ThanksController extends Controller
             session()->forget('coupon');
         }
 
-        if (!Auth::guest()){
-            $cart = Cart::content();
-            $order = new Order();
-            $order->cart = serialize($cart);
-            $order->user_id = Auth::user()->id;
-            $order->transaction = 'Paypal';
-
-            $order->save();
-        }
-
         Cart::instance('default')->destroy();
         return redirect()->route('thanks.index');
     }

@@ -13,7 +13,6 @@ class HomeDeliveryController extends Controller
 {
     public function saveHomeDelivery(Request $request)
     {
-
         $cart = Cart::content();
 
         $homeDelivery = new HomeDelivery();
@@ -36,6 +35,7 @@ class HomeDeliveryController extends Controller
             $order->cart = serialize($cart);
             $order->user_id = Auth::user()->id;
             $order->transaction = 'Kucna dostava';
+            $order->totalPrice = $request->totalPrice;
 
             $order->save();
         }

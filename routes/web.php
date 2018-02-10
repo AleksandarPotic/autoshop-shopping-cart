@@ -26,6 +26,7 @@ Route::get('/thanks','ThanksController@index')->name('thanks.index');
 Route::get('/saveOrder','ThanksController@saveOrder')->name('thanks.saveOrder');
 
 Route::get('/order','OrderController@index')->name('order.index');
+Route::get('/profile','OrderController@profile')->name('order.profile');
 Route::post('/changeUser','OrderController@changeUser')->name('order.changeUser');
 
 Route::post('/homeDelivery','HomeDeliveryController@saveHomeDelivery')->name('homeDelivery.save');
