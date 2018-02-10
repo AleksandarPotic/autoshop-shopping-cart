@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 10, 2018 at 05:58 PM
+-- Generation Time: Feb 10, 2018 at 07:49 PM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.1.12
 
@@ -271,7 +271,19 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (76, 10, 'value', 'number', 'Value', 0, 1, 1, 1, 1, 1, NULL, 4),
 (77, 10, 'email', 'text', 'Email', 0, 1, 1, 1, 1, 1, NULL, 5),
 (78, 10, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, NULL, 6),
-(79, 10, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 7);
+(79, 10, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 7),
+(80, 11, 'id', 'hidden', 'Id', 1, 1, 1, 1, 1, 1, NULL, 1),
+(81, 11, 'user_id', 'number', 'User Id', 0, 1, 1, 1, 1, 1, NULL, 2),
+(82, 11, 'name', 'text', 'Name', 1, 1, 1, 1, 1, 1, NULL, 3),
+(83, 11, 'email', 'text', 'Email', 1, 1, 1, 1, 1, 1, NULL, 4),
+(84, 11, 'mobile', 'text', 'Mobile', 1, 1, 1, 1, 1, 1, NULL, 5),
+(85, 11, 'street', 'text', 'Street', 1, 1, 1, 1, 1, 1, NULL, 6),
+(86, 11, 'city', 'text', 'City', 1, 1, 1, 1, 1, 1, NULL, 7),
+(87, 11, 'postalCode', 'text', 'PostalCode', 1, 1, 1, 1, 1, 1, NULL, 8),
+(88, 11, 'cart', 'text', 'Cart', 1, 1, 1, 1, 1, 1, NULL, 9),
+(89, 11, 'totalPrice', 'text', 'TotalPrice', 1, 1, 1, 1, 1, 1, NULL, 10),
+(90, 11, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, NULL, 11),
+(91, 11, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, NULL, 12);
 
 -- --------------------------------------------------------
 
@@ -310,7 +322,8 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 (7, 'products', 'products', 'Product', 'Products', 'voyager-bag', 'App\\Product', NULL, NULL, NULL, 1, 0, '2018-02-09 15:21:10', '2018-02-09 15:21:10'),
 (8, 'category', 'category', 'Category', 'Categories', 'voyager-tag', 'App\\Category', NULL, NULL, NULL, 1, 0, '2018-02-09 15:21:46', '2018-02-09 15:21:46'),
 (9, 'category_product', 'category-product', 'Category Product', 'Category Products', 'voyager-paper-plane', 'App\\CategoryProduct', NULL, NULL, NULL, 1, 0, '2018-02-09 15:22:51', '2018-02-09 15:22:51'),
-(10, 'coupons', 'coupons', 'Coupon', 'Coupons', 'voyager-ticket', 'App\\Coupon', NULL, NULL, NULL, 1, 0, '2018-02-09 15:24:09', '2018-02-09 15:24:09');
+(10, 'coupons', 'coupons', 'Coupon', 'Coupons', 'voyager-ticket', 'App\\Coupon', NULL, NULL, NULL, 1, 0, '2018-02-09 15:24:09', '2018-02-09 15:24:09'),
+(11, 'home_deliveries', 'home-deliveries', 'Home Delivery', 'Home Deliveries', 'voyager-basket', 'App\\HomeDelivery', NULL, NULL, NULL, 1, 0, '2018-02-10 17:42:13', '2018-02-10 17:42:13');
 
 -- --------------------------------------------------------
 
@@ -338,12 +351,9 @@ CREATE TABLE `home_deliveries` (
 --
 
 INSERT INTO `home_deliveries` (`id`, `user_id`, `name`, `email`, `mobile`, `street`, `city`, `postalCode`, `cart`, `totalPrice`, `created_at`, `updated_at`) VALUES
-(3, NULL, 'Aleksandar Potic', 'aleksandar1995potic@gmail.com', '0665064004', 'sl.Drzina br 195', 'Pirot', '18300', 'O:29:\"Illuminate\\Support\\Collection\":1:{s:8:\"\0*\0items\";a:1:{s:32:\"468399581342505c47f4615b81bedaa9\";O:32:\"Gloudemans\\Shoppingcart\\CartItem\":8:{s:5:\"rowId\";s:32:\"468399581342505c47f4615b81bedaa9\";s:2:\"id\";s:1:\"5\";s:3:\"qty\";s:1:\"3\";s:4:\"name\";s:12:\"Akomulator 5\";s:5:\"price\";d:912;s:7:\"options\";O:39:\"Gloudemans\\Shoppingcart\\CartItemOptions\":1:{s:8:\"\0*\0items\";a:0:{}}s:49:\"\0Gloudemans\\Shoppingcart\\CartItem\0associatedModel\";s:11:\"App\\Product\";s:41:\"\0Gloudemans\\Shoppingcart\\CartItem\0taxRate\";i:21;}}}', '3,228.48', '2018-02-09 16:11:05', '2018-02-09 16:11:05'),
-(4, NULL, 'Aleksandar Potic', 'aleksandar1995potic@gmail.com', '0665064004', 'sl.Drzina br 195', 'Pirot', '18300', 'O:29:\"Illuminate\\Support\\Collection\":1:{s:8:\"\0*\0items\";a:1:{s:32:\"07cca15168b1a5e48e0f89d878fbf6ea\";O:32:\"Gloudemans\\Shoppingcart\\CartItem\":8:{s:5:\"rowId\";s:32:\"07cca15168b1a5e48e0f89d878fbf6ea\";s:2:\"id\";s:2:\"16\";s:3:\"qty\";s:1:\"3\";s:4:\"name\";s:8:\"Staklo 5\";s:5:\"price\";d:938;s:7:\"options\";O:39:\"Gloudemans\\Shoppingcart\\CartItemOptions\":1:{s:8:\"\0*\0items\";a:0:{}}s:49:\"\0Gloudemans\\Shoppingcart\\CartItem\0associatedModel\";s:11:\"App\\Product\";s:41:\"\0Gloudemans\\Shoppingcart\\CartItem\0taxRate\";i:21;}}}', '3,020.52', '2018-02-09 16:12:45', '2018-02-09 16:12:45'),
-(5, NULL, 'Aleksandar Potic', 'aleksandar1995potic@gmail.com', '0665064004', 'sl.Drzina br 195', 'Pirot', '18300', 'O:29:\"Illuminate\\Support\\Collection\":1:{s:8:\"\0*\0items\";a:1:{s:32:\"07cca15168b1a5e48e0f89d878fbf6ea\";O:32:\"Gloudemans\\Shoppingcart\\CartItem\":8:{s:5:\"rowId\";s:32:\"07cca15168b1a5e48e0f89d878fbf6ea\";s:2:\"id\";s:2:\"16\";s:3:\"qty\";s:1:\"3\";s:4:\"name\";s:8:\"Staklo 5\";s:5:\"price\";d:938;s:7:\"options\";O:39:\"Gloudemans\\Shoppingcart\\CartItemOptions\":1:{s:8:\"\0*\0items\";a:0:{}}s:49:\"\0Gloudemans\\Shoppingcart\\CartItem\0associatedModel\";s:11:\"App\\Product\";s:41:\"\0Gloudemans\\Shoppingcart\\CartItem\0taxRate\";i:21;}}}', '3,020.52', '2018-02-09 16:13:11', '2018-02-09 16:13:11'),
-(6, '3', 'Aleksandar Potic', 'aleksandar1995potic@gmail.com', '0665064004', 'sl.Drzina br 195', 'Pirot', '18300', 'O:29:\"Illuminate\\Support\\Collection\":1:{s:8:\"\0*\0items\";a:1:{s:32:\"303a7f02364f1e92dc60c05c9b15239f\";O:32:\"Gloudemans\\Shoppingcart\\CartItem\":8:{s:5:\"rowId\";s:32:\"303a7f02364f1e92dc60c05c9b15239f\";s:2:\"id\";s:2:\"18\";s:3:\"qty\";s:1:\"3\";s:4:\"name\";s:8:\"Staklo 7\";s:5:\"price\";d:789;s:7:\"options\";O:39:\"Gloudemans\\Shoppingcart\\CartItemOptions\":1:{s:8:\"\0*\0items\";a:0:{}}s:49:\"\0Gloudemans\\Shoppingcart\\CartItem\0associatedModel\";s:11:\"App\\Product\";s:41:\"\0Gloudemans\\Shoppingcart\\CartItem\0taxRate\";i:21;}}}', '2,493.06', '2018-02-09 16:15:35', '2018-02-09 16:15:35'),
-(7, '3', 'Aleksandar Potic', 'aleksandar1995potic@gmail.com', '0665064004', 'sl.Drzina br 200', 'Pirot', '18300', 'O:29:\"Illuminate\\Support\\Collection\":1:{s:8:\"\0*\0items\";a:2:{s:32:\"addc525ce43f5cbb4517bfa51c9c08e5\";O:32:\"Gloudemans\\Shoppingcart\\CartItem\":8:{s:5:\"rowId\";s:32:\"addc525ce43f5cbb4517bfa51c9c08e5\";s:2:\"id\";s:2:\"26\";s:3:\"qty\";s:1:\"1\";s:4:\"name\";s:12:\"Retrovizor 4\";s:5:\"price\";d:569;s:7:\"options\";O:39:\"Gloudemans\\Shoppingcart\\CartItemOptions\":1:{s:8:\"\0*\0items\";a:0:{}}s:49:\"\0Gloudemans\\Shoppingcart\\CartItem\0associatedModel\";s:11:\"App\\Product\";s:41:\"\0Gloudemans\\Shoppingcart\\CartItem\0taxRate\";i:21;}s:32:\"8a48aa7c8e5202841ddaf767bb4d10da\";O:32:\"Gloudemans\\Shoppingcart\\CartItem\":8:{s:5:\"rowId\";s:32:\"8a48aa7c8e5202841ddaf767bb4d10da\";s:2:\"id\";s:1:\"6\";s:3:\"qty\";s:1:\"1\";s:4:\"name\";s:12:\"Akomulator 6\";s:5:\"price\";d:209;s:7:\"options\";O:39:\"Gloudemans\\Shoppingcart\\CartItemOptions\":1:{s:8:\"\0*\0items\";a:0:{}}s:49:\"\0Gloudemans\\Shoppingcart\\CartItem\0associatedModel\";s:11:\"App\\Product\";s:41:\"\0Gloudemans\\Shoppingcart\\CartItem\0taxRate\";i:21;}}}', '918.04', '2018-02-10 10:16:04', '2018-02-10 10:16:04'),
-(8, NULL, 'Nikola Nikolic', 'aleksandar1995potic@gmail.com', '0665064005', 'sl.Drzina br 200', 'Pirot', '18300', 'O:29:\"Illuminate\\Support\\Collection\":1:{s:8:\"\0*\0items\";a:1:{s:32:\"88aad65a1416c8271cddc2ee48e4a30b\";O:32:\"Gloudemans\\Shoppingcart\\CartItem\":8:{s:5:\"rowId\";s:32:\"88aad65a1416c8271cddc2ee48e4a30b\";s:2:\"id\";s:2:\"56\";s:3:\"qty\";s:1:\"3\";s:4:\"name\";s:8:\"Ostalo 1\";s:5:\"price\";d:271;s:7:\"options\";O:39:\"Gloudemans\\Shoppingcart\\CartItemOptions\":1:{s:8:\"\0*\0items\";a:0:{}}s:49:\"\0Gloudemans\\Shoppingcart\\CartItem\0associatedModel\";s:11:\"App\\Product\";s:41:\"\0Gloudemans\\Shoppingcart\\CartItem\0taxRate\";i:21;}}}', '959.34', '2018-02-10 15:57:27', '2018-02-10 15:57:27');
+(15, '3', 'Aleksandar Potic', 'aleksandar1995potic@gmail.com', '0665064004', 'sl.Drzina br 200', 'Pirot', '18300', 'O:29:\"Illuminate\\Support\\Collection\":1:{s:8:\"\0*\0items\";a:2:{s:32:\"addc525ce43f5cbb4517bfa51c9c08e5\";O:32:\"Gloudemans\\Shoppingcart\\CartItem\":8:{s:5:\"rowId\";s:32:\"addc525ce43f5cbb4517bfa51c9c08e5\";s:2:\"id\";s:2:\"26\";s:3:\"qty\";s:1:\"3\";s:4:\"name\";s:12:\"Retrovizor 4\";s:5:\"price\";d:569;s:7:\"options\";O:39:\"Gloudemans\\Shoppingcart\\CartItemOptions\":1:{s:8:\"\0*\0items\";a:0:{}}s:49:\"\0Gloudemans\\Shoppingcart\\CartItem\0associatedModel\";s:11:\"App\\Product\";s:41:\"\0Gloudemans\\Shoppingcart\\CartItem\0taxRate\";i:21;}s:32:\"18d6934483b994fb9943b43b7d7646bf\";O:32:\"Gloudemans\\Shoppingcart\\CartItem\":8:{s:5:\"rowId\";s:32:\"18d6934483b994fb9943b43b7d7646bf\";s:2:\"id\";s:1:\"8\";s:3:\"qty\";s:1:\"1\";s:4:\"name\";s:12:\"Akomulator 8\";s:5:\"price\";d:856;s:7:\"options\";O:39:\"Gloudemans\\Shoppingcart\\CartItemOptions\":1:{s:8:\"\0*\0items\";a:0:{}}s:49:\"\0Gloudemans\\Shoppingcart\\CartItem\0associatedModel\";s:11:\"App\\Product\";s:41:\"\0Gloudemans\\Shoppingcart\\CartItem\0taxRate\";i:21;}}}', '3,024.34', '2018-02-10 17:19:59', '2018-02-10 17:19:59'),
+(16, '3', 'Aleksandar Potic', 'aleksandar1995potic@gmail.com', '0665064004', 'sl.Drzina br 200', 'Pirot', '18300', 'O:29:\"Illuminate\\Support\\Collection\":1:{s:8:\"\0*\0items\";a:1:{s:32:\"eef12573176125ce53e333e13d747a17\";O:32:\"Gloudemans\\Shoppingcart\\CartItem\":8:{s:5:\"rowId\";s:32:\"eef12573176125ce53e333e13d747a17\";s:2:\"id\";s:2:\"12\";s:3:\"qty\";s:1:\"1\";s:4:\"name\";s:8:\"Staklo 1\";s:5:\"price\";d:149;s:7:\"options\";O:39:\"Gloudemans\\Shoppingcart\\CartItemOptions\":1:{s:8:\"\0*\0items\";a:0:{}}s:49:\"\0Gloudemans\\Shoppingcart\\CartItem\0associatedModel\";s:11:\"App\\Product\";s:41:\"\0Gloudemans\\Shoppingcart\\CartItem\0taxRate\";i:21;}}}', '175.82', '2018-02-10 17:30:31', '2018-02-10 17:30:31'),
+(17, NULL, 'Marinko Rokvic', 'marinkorokvic@gmail.com', '0665053792', 'Bulevar Nikole Tesle b44', 'Nis', '18000', 'O:29:\"Illuminate\\Support\\Collection\":1:{s:8:\"\0*\0items\";a:1:{s:32:\"88aad65a1416c8271cddc2ee48e4a30b\";O:32:\"Gloudemans\\Shoppingcart\\CartItem\":8:{s:5:\"rowId\";s:32:\"88aad65a1416c8271cddc2ee48e4a30b\";s:2:\"id\";s:2:\"56\";s:3:\"qty\";s:1:\"1\";s:4:\"name\";s:8:\"Ostalo 1\";s:5:\"price\";d:271;s:7:\"options\";O:39:\"Gloudemans\\Shoppingcart\\CartItemOptions\":1:{s:8:\"\0*\0items\";a:0:{}}s:49:\"\0Gloudemans\\Shoppingcart\\CartItem\0associatedModel\";s:11:\"App\\Product\";s:41:\"\0Gloudemans\\Shoppingcart\\CartItem\0taxRate\";i:21;}}}', '319.78', '2018-02-10 17:38:05', '2018-02-10 17:38:05');
 
 -- --------------------------------------------------------
 
@@ -408,7 +418,8 @@ INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class
 (14, 1, 'Products', '/admin/products', '_self', 'voyager-bag', NULL, NULL, 3, '2018-02-09 15:21:11', '2018-02-09 15:26:40', NULL, NULL),
 (15, 1, 'Categories', '/admin/category', '_self', 'voyager-tag', NULL, NULL, 11, '2018-02-09 15:21:46', '2018-02-09 15:26:34', NULL, NULL),
 (16, 1, 'Category Products', '/admin/category-product', '_self', 'voyager-paper-plane', NULL, NULL, 5, '2018-02-09 15:22:51', '2018-02-09 15:26:40', NULL, NULL),
-(17, 1, 'Coupons', '/admin/coupons', '_self', 'voyager-ticket', NULL, NULL, 7, '2018-02-09 15:24:10', '2018-02-09 15:26:37', NULL, NULL);
+(17, 1, 'Coupons', '/admin/coupons', '_self', 'voyager-ticket', NULL, NULL, 7, '2018-02-09 15:24:10', '2018-02-09 15:26:37', NULL, NULL),
+(18, 1, 'Home Deliveries', '/admin/home-deliveries', '_self', 'voyager-basket', NULL, NULL, 14, '2018-02-10 17:42:13', '2018-02-10 17:42:13', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -467,6 +478,7 @@ CREATE TABLE `orders` (
   `id` int(10) UNSIGNED NOT NULL,
   `user_id` int(11) NOT NULL,
   `cart` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `totalPrice` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
   `transaction` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -476,11 +488,9 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `user_id`, `cart`, `transaction`, `created_at`, `updated_at`) VALUES
-(3, 3, 'O:29:\"Illuminate\\Support\\Collection\":1:{s:8:\"\0*\0items\";a:1:{s:32:\"468399581342505c47f4615b81bedaa9\";O:32:\"Gloudemans\\Shoppingcart\\CartItem\":8:{s:5:\"rowId\";s:32:\"468399581342505c47f4615b81bedaa9\";s:2:\"id\";s:1:\"5\";s:3:\"qty\";s:1:\"3\";s:4:\"name\";s:12:\"Akomulator 5\";s:5:\"price\";d:912;s:7:\"options\";O:39:\"Gloudemans\\Shoppingcart\\CartItemOptions\":1:{s:8:\"\0*\0items\";a:0:{}}s:49:\"\0Gloudemans\\Shoppingcart\\CartItem\0associatedModel\";s:11:\"App\\Product\";s:41:\"\0Gloudemans\\Shoppingcart\\CartItem\0taxRate\";i:21;}}}', 'Kucna dostava', '2018-02-09 16:11:05', '2018-02-09 16:11:05'),
-(4, 3, 'O:29:\"Illuminate\\Support\\Collection\":1:{s:8:\"\0*\0items\";a:1:{s:32:\"07cca15168b1a5e48e0f89d878fbf6ea\";O:32:\"Gloudemans\\Shoppingcart\\CartItem\":8:{s:5:\"rowId\";s:32:\"07cca15168b1a5e48e0f89d878fbf6ea\";s:2:\"id\";s:2:\"16\";s:3:\"qty\";s:1:\"3\";s:4:\"name\";s:8:\"Staklo 5\";s:5:\"price\";d:938;s:7:\"options\";O:39:\"Gloudemans\\Shoppingcart\\CartItemOptions\":1:{s:8:\"\0*\0items\";a:0:{}}s:49:\"\0Gloudemans\\Shoppingcart\\CartItem\0associatedModel\";s:11:\"App\\Product\";s:41:\"\0Gloudemans\\Shoppingcart\\CartItem\0taxRate\";i:21;}}}', 'Kucna dostava', '2018-02-09 16:12:45', '2018-02-09 16:12:45'),
-(5, 3, 'O:29:\"Illuminate\\Support\\Collection\":1:{s:8:\"\0*\0items\";a:1:{s:32:\"07cca15168b1a5e48e0f89d878fbf6ea\";O:32:\"Gloudemans\\Shoppingcart\\CartItem\":8:{s:5:\"rowId\";s:32:\"07cca15168b1a5e48e0f89d878fbf6ea\";s:2:\"id\";s:2:\"16\";s:3:\"qty\";s:1:\"3\";s:4:\"name\";s:8:\"Staklo 5\";s:5:\"price\";d:938;s:7:\"options\";O:39:\"Gloudemans\\Shoppingcart\\CartItemOptions\":1:{s:8:\"\0*\0items\";a:0:{}}s:49:\"\0Gloudemans\\Shoppingcart\\CartItem\0associatedModel\";s:11:\"App\\Product\";s:41:\"\0Gloudemans\\Shoppingcart\\CartItem\0taxRate\";i:21;}}}', 'Kucna dostava', '2018-02-09 16:13:11', '2018-02-09 16:13:11'),
-(6, 3, 'O:29:\"Illuminate\\Support\\Collection\":1:{s:8:\"\0*\0items\";a:1:{s:32:\"303a7f02364f1e92dc60c05c9b15239f\";O:32:\"Gloudemans\\Shoppingcart\\CartItem\":8:{s:5:\"rowId\";s:32:\"303a7f02364f1e92dc60c05c9b15239f\";s:2:\"id\";s:2:\"18\";s:3:\"qty\";s:1:\"3\";s:4:\"name\";s:8:\"Staklo 7\";s:5:\"price\";d:789;s:7:\"options\";O:39:\"Gloudemans\\Shoppingcart\\CartItemOptions\":1:{s:8:\"\0*\0items\";a:0:{}}s:49:\"\0Gloudemans\\Shoppingcart\\CartItem\0associatedModel\";s:11:\"App\\Product\";s:41:\"\0Gloudemans\\Shoppingcart\\CartItem\0taxRate\";i:21;}}}', 'Kucna dostava', '2018-02-09 16:15:36', '2018-02-09 16:15:36');
+INSERT INTO `orders` (`id`, `user_id`, `cart`, `totalPrice`, `transaction`, `created_at`, `updated_at`) VALUES
+(12, 3, 'O:29:\"Illuminate\\Support\\Collection\":1:{s:8:\"\0*\0items\";a:2:{s:32:\"addc525ce43f5cbb4517bfa51c9c08e5\";O:32:\"Gloudemans\\Shoppingcart\\CartItem\":8:{s:5:\"rowId\";s:32:\"addc525ce43f5cbb4517bfa51c9c08e5\";s:2:\"id\";s:2:\"26\";s:3:\"qty\";s:1:\"3\";s:4:\"name\";s:12:\"Retrovizor 4\";s:5:\"price\";d:569;s:7:\"options\";O:39:\"Gloudemans\\Shoppingcart\\CartItemOptions\":1:{s:8:\"\0*\0items\";a:0:{}}s:49:\"\0Gloudemans\\Shoppingcart\\CartItem\0associatedModel\";s:11:\"App\\Product\";s:41:\"\0Gloudemans\\Shoppingcart\\CartItem\0taxRate\";i:21;}s:32:\"18d6934483b994fb9943b43b7d7646bf\";O:32:\"Gloudemans\\Shoppingcart\\CartItem\":8:{s:5:\"rowId\";s:32:\"18d6934483b994fb9943b43b7d7646bf\";s:2:\"id\";s:1:\"8\";s:3:\"qty\";s:1:\"1\";s:4:\"name\";s:12:\"Akomulator 8\";s:5:\"price\";d:856;s:7:\"options\";O:39:\"Gloudemans\\Shoppingcart\\CartItemOptions\":1:{s:8:\"\0*\0items\";a:0:{}}s:49:\"\0Gloudemans\\Shoppingcart\\CartItem\0associatedModel\";s:11:\"App\\Product\";s:41:\"\0Gloudemans\\Shoppingcart\\CartItem\0taxRate\";i:21;}}}', '3,024.34', 'Kucna dostava', '2018-02-10 17:19:59', '2018-02-10 17:19:59'),
+(13, 3, 'O:29:\"Illuminate\\Support\\Collection\":1:{s:8:\"\0*\0items\";a:1:{s:32:\"eef12573176125ce53e333e13d747a17\";O:32:\"Gloudemans\\Shoppingcart\\CartItem\":8:{s:5:\"rowId\";s:32:\"eef12573176125ce53e333e13d747a17\";s:2:\"id\";s:2:\"12\";s:3:\"qty\";s:1:\"1\";s:4:\"name\";s:8:\"Staklo 1\";s:5:\"price\";d:149;s:7:\"options\";O:39:\"Gloudemans\\Shoppingcart\\CartItemOptions\":1:{s:8:\"\0*\0items\";a:0:{}}s:49:\"\0Gloudemans\\Shoppingcart\\CartItem\0associatedModel\";s:11:\"App\\Product\";s:41:\"\0Gloudemans\\Shoppingcart\\CartItem\0taxRate\";i:21;}}}', '175.82', 'Kucna dostava', '2018-02-10 17:30:31', '2018-02-10 17:30:31');
 
 -- --------------------------------------------------------
 
@@ -594,7 +604,12 @@ INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`
 (57, 'read_coupons', 'coupons', '2018-02-09 15:24:09', '2018-02-09 15:24:09', NULL),
 (58, 'edit_coupons', 'coupons', '2018-02-09 15:24:09', '2018-02-09 15:24:09', NULL),
 (59, 'add_coupons', 'coupons', '2018-02-09 15:24:09', '2018-02-09 15:24:09', NULL),
-(60, 'delete_coupons', 'coupons', '2018-02-09 15:24:09', '2018-02-09 15:24:09', NULL);
+(60, 'delete_coupons', 'coupons', '2018-02-09 15:24:09', '2018-02-09 15:24:09', NULL),
+(61, 'browse_home_deliveries', 'home_deliveries', '2018-02-10 17:42:13', '2018-02-10 17:42:13', NULL),
+(62, 'read_home_deliveries', 'home_deliveries', '2018-02-10 17:42:13', '2018-02-10 17:42:13', NULL),
+(63, 'edit_home_deliveries', 'home_deliveries', '2018-02-10 17:42:13', '2018-02-10 17:42:13', NULL),
+(64, 'add_home_deliveries', 'home_deliveries', '2018-02-10 17:42:13', '2018-02-10 17:42:13', NULL),
+(65, 'delete_home_deliveries', 'home_deliveries', '2018-02-10 17:42:13', '2018-02-10 17:42:13', NULL);
 
 -- --------------------------------------------------------
 
@@ -682,7 +697,12 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (57, 1),
 (58, 1),
 (59, 1),
-(60, 1);
+(60, 1),
+(61, 1),
+(62, 1),
+(63, 1),
+(64, 1),
+(65, 1);
 
 -- --------------------------------------------------------
 
@@ -900,8 +920,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `password`, `mobile`, `street`, `city`, `postalCode`, `birthday`, `status`, `verifyToken`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Aleksandar', 'admin@admin.com', 'users/default.png', '$2y$10$h6bwRLPdTXWr/yoGDB/zxuqrvE1pEiFqfPc9JgMB1dxitXyL8j.am', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'JY7JxlbdKKuJNIiTors3WFl8AkPurViGYc265wx6vDT1nxHv3IoLOOLCB6pz', '2018-02-09 14:58:47', '2018-02-09 14:58:47'),
-(3, 2, 'Aleksandar Potic', 'aleksandar1995potic@gmail.com', 'users/default.png', '$2y$10$.p8P3rs.XIWJPSBcXJq35ekrtfOzgd12wOTbCNYvXo7c4ulKBxHYS', '0665064004', 'sl.Drzina br 200', 'Pirot', '18300', '1995-09-29', 1, NULL, 'wQy6lEDULFEl8cow1XfLEqtJclwlyRWWqakmLRQjIXmRvO4cRvlEoHMx06wJ', '2018-02-09 15:34:40', '2018-02-10 09:34:29');
+(1, 1, 'Aleksandar', 'admin@admin.com', 'users/default.png', '$2y$10$h6bwRLPdTXWr/yoGDB/zxuqrvE1pEiFqfPc9JgMB1dxitXyL8j.am', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'GdzEKa5AMb9KfBiUX0pzkwsUjLlQvrCvPEq0wG24rSevlFX9LTmjYCtWdt4o', '2018-02-09 14:58:47', '2018-02-09 14:58:47'),
+(3, 2, 'Aleksandar Potic', 'aleksandar1995potic@gmail.com', 'users/default.png', '$2y$10$.p8P3rs.XIWJPSBcXJq35ekrtfOzgd12wOTbCNYvXo7c4ulKBxHYS', '0665064004', 'sl.Drzina br 200', 'Pirot', '18300', '1995-09-29', 1, NULL, 'qFNaghiuRTAnDiVgb6boQYpfdoId0HPcGjuxNCidvnBcMlvQ99npGsUedFt1', '2018-02-09 15:34:40', '2018-02-10 09:34:29');
 
 --
 -- Indexes for dumped tables
@@ -1094,19 +1114,19 @@ ALTER TABLE `coupons`
 -- AUTO_INCREMENT for table `data_rows`
 --
 ALTER TABLE `data_rows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
 -- AUTO_INCREMENT for table `data_types`
 --
 ALTER TABLE `data_types`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `home_deliveries`
 --
 ALTER TABLE `home_deliveries`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `menus`
@@ -1118,7 +1138,7 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT for table `menu_items`
 --
 ALTER TABLE `menu_items`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -1130,7 +1150,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `pages`
@@ -1142,7 +1162,7 @@ ALTER TABLE `pages`
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `permission_groups`
