@@ -15,19 +15,19 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2" style="margin-top: 0px">
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#" style="font-size: 16px; color: gray;">{{ Auth::user()->name }}</a></li>
-
+            @if(Auth::user()->role_id == 1)
+                <li><a href="/admin" style="font-size: 16px; color: gray;">Dashboard</a></li>
+            @else
+                <li><a href="{{ route('order.index') }}" style="font-size: 16px; color: gray;">{{ Auth::user()->name }}</a></li>
+            @endif
             <li>
-                <a href="{{ route('logout') }}"
-                   onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <p style="font-size: 16px; color: gray;">Odjavi se</p>
                 </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     {{ csrf_field() }}
                 </form>
             </li>
-
         </ul>
     </div><!-- /.navbar-collapse -->
 

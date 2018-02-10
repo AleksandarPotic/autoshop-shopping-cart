@@ -88,37 +88,37 @@
                         <div class="form-group row">
                             <label for="example-text-input" class="col-2 col-form-label">Ime i prezime</label>
                             <div class="col-10">
-                                <input class="form-control" type="text" id="name" name="name" placeholder="Ime i prezime" value="@if(!Auth::guest()){{ Auth::user()->name }}@endif">
+                                <input class="form-control" type="text" id="name" name="name" placeholder="Ime i prezime" value="@if(!Auth::guest()){{ Auth::user()->name }}@endif" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="example-text-input" class="col-2 col-form-label">Email adresa</label>
                             <div class="col-10">
-                                <input class="form-control" type="email" id="email" name="email" placeholder="Email adresa" value="@if(!Auth::guest()){{ Auth::user()->email }}@endif">
+                                <input class="form-control" type="email" id="email" name="email" placeholder="Email adresa" value="@if(!Auth::guest()){{ Auth::user()->email }}@endif" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="example-tel-input" class="col-2 col-form-label">Telefon</label>
                             <div class="col-10">
-                                <input class="form-control" type="text" id="mobile" name="mobile" placeholder="Telefon" value="@if(!Auth::guest()){{ Auth::user()->mobile }}@endif">
+                                <input class="form-control" type="text" id="mobile" name="mobile" placeholder="Telefon" value="@if(!Auth::guest()){{ Auth::user()->mobile }}@endif" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="example-tel-input" class="col-2 col-form-label">Grad</label>
                             <div class="col-10">
-                                <input class="form-control" type="text" id="city" name="city" placeholder="Grad" value="@if(!Auth::guest()){{ Auth::user()->city }}@endif">
+                                <input class="form-control" type="text" id="city" name="city" placeholder="Grad" value="@if(!Auth::guest()){{ Auth::user()->city }}@endif" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="example-tel-input" class="col-2 col-form-label">Ulica i broj</label>
                             <div class="col-10">
-                                <input class="form-control" type="text" id="street" name="street" placeholder="Ulica i broj" value="@if(!Auth::guest()){{ Auth::user()->street }}@endif">
+                                <input class="form-control" type="text" id="street" name="street" placeholder="Ulica i broj" value="@if(!Auth::guest()){{ Auth::user()->street }}@endif" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="example-tel-input" class="col-2 col-form-label">Postanski broj</label>
                             <div class="col-10">
-                                <input class="form-control" type="text" id="postalCode" name="postalCode" placeholder="Postanski broj" value="@if(!Auth::guest()){{ Auth::user()->postalCode }}@endif">
+                                <input class="form-control" type="text" id="postalCode" name="postalCode" placeholder="Postanski broj" value="@if(!Auth::guest()){{ Auth::user()->postalCode }}@endif" required>
                             </div>
                         </div>
                         <input class="hidden" name="totalPrice" value="{{ $newTotal }}">
