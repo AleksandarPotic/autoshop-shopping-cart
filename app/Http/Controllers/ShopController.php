@@ -6,6 +6,7 @@ use App\Category;
 use App\Product;
 use function foo\func;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class ShopController extends Controller
 {
@@ -23,9 +24,20 @@ class ShopController extends Controller
             $categories = Category::all();
             $categoryName = $categories->where('slug',request()->category)->first()->name;
         }else{
-            $products = Product::inRandomOrder()->paginate(12);
+            //Test cache
+            //$start = microtime(true);
+            $products = Cache::remember('products', 10, function (){
+                return Product::inRandomOrder()->paginate(12);
+            });
+
+            //Test cache
+            //$duration = (microtime(true) - $start) * 1000;
+
             $categories = Category::all();
             $categoryName = 'Proizvodi';
+
+            //Test cache
+            //return $duration;
         }
 
         return view('user.shop',compact('products','categories','categoryName'));
@@ -34,7 +46,7 @@ class ShopController extends Controller
     {
         $price = $request->price;
         if (isset($price)){
-            $products = Product::where('price', '<=', $price)->orderByRaw('price DESC')->paginate(100);
+            $products = Product::where('price', '<=', $price)->orderByRaw('price DESC')->paginate(12);
             response()->json($products);
             return view('user.layer.range',compact('products'));
         }

@@ -15,6 +15,7 @@
             <ul><br>
                 <a href="{{ route('order.index') }}" id="profile"><h4>Narudzbine</h4></a>
                 <a href="{{ route('order.profile') }}" id="profile"><h4>Vasi podaci</h4></a>
+                <a href="{{ route('order.points') }}" id="profile"><h4>Vasi poeni</h4></a>
             </ul>
         </div>
         <h2>Narudzbine</h2>

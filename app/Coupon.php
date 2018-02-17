@@ -16,9 +16,9 @@ class Coupon extends Model
         {
             return $this->value;
 
-        } elseif ($this->type == 'precent_off'){
+        } elseif ($this->type == 'percent'){
 
-            return ($this->percent_off / 100) * $total;
+            return $total * $this->value / 100;
 
         } else{
             return 0;

@@ -1,7 +1,6 @@
 @extends('user.layer.app')
 
 @section('main-content')
-
     <!-- CONTACT -->
     <div class="row" style="background-color: #e0e0e0;">
         <div class="col-lg-11 col-lg-offset-1">
@@ -9,7 +8,8 @@
         </div>
     </div>
     <br>
-    <div class="container" id="container">
+    <div class="container">
+        <ul id="panel">
         <div class="row">
             @if (session()->has('success_message'))
                 <div class="alert alert-success">
@@ -24,10 +24,10 @@
                         @endforeach
                     </ul>
                 </div>
-                @endif
+            @endif
 
-                @if(Cart::count() > 0)
-            <h3>Trenutno proizvoda u korpi: {{ Cart::count() }}</h3>
+            @if(Cart::count() > 0)
+                <h3>Trenutno proizvoda u korpi: {{ Cart::count() }}</h3>
                 @foreach(Cart::content() as $item)
                     <div class="col-lg-12" id="item">
                         <hr>
@@ -42,8 +42,23 @@
                             <form action="{{ route('cart.destroy', $item->rowId) }}" method="POST">
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
-
-                                <button type="submit" class="btn btn-link"><h5 style="color: black">Ukloni</h5></button>
+                                <button type="button" class="btn btn-link ourItem" data-toggle="modal" data-target="#myModal"><h5 style="color: black">Ukloni</h5>
+                                    <input type="hidden" id="itemId" value="{{ $item->rowId }}">
+                                </button>
+                                <div class="modal fade" id="myModal" role="dialog" style="margin-top: 100px;">
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                                <input type="hidden" id="id_delete">
+                                                <p>Da li zelite da izbrisete ovaj proizvod?</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Ne</button>
+                                                <button type="button" id="item_delete" class="btn btn-danger" data-dismiss="modal">Ukloni proizvod</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </form>
                             <form action="{{ route('cart.switchSaveForLater', $item->rowId) }}" method="POST">
                                 {{ csrf_field() }}
@@ -63,16 +78,16 @@
                             <h4><b>{{ $item->model->presentPrice($item->subtotal) }}</b></h4>
                         </div>
                     </div>
-                    @endforeach
+                @endforeach
         </div>
         <hr>
         <div class="row">
             <div class="col-lg-5 col-lg-offset-1">
                 @if(!$percent == 0)
-                <h4>Ukupna cena bez PDV-a : ${{ $subtotal }}</h4>
-                <h4>PDV({{ $percent }}%) : ${{ $tax }}</h4>
+                    <h4>Ukupna cena bez PDV-a : ${{ $subtotal }}</h4>
+                    <h4>PDV({{ $percent }}%) : ${{ $tax }}</h4>
                 @endif
-                    <h3><b>Ukupna cena : ${{ $total }}</b></h3>
+                <h3><b>Ukupna cena : ${{ $total }}</b></h3>
             </div>
         </div>
         <hr>
@@ -119,10 +134,11 @@
                     <br>
                 </div>
             @endforeach
-            @else
+        @else
 
             <h3>Nema proizvoda u listi sa sacuvanim proizvodima</h3>
         @endif
+        </ul>
     </div>
 
     </div>
@@ -132,24 +148,34 @@
     <script>
 
         $(document).ready(function () {
-           const classname = document.querySelectorAll(".quantity")
+            const classname = document.querySelectorAll(".quantity")
 
             Array.from(classname).forEach(function (element) {
-              element.addEventListener('change',function () {
-                  const id = element.getAttribute("data-id")
-                  axios.patch(`/cart/${id}` , {
-                      quantity: this.value
-                  })
-                      .then(function (response) {
-                          window.location.href = '{{ route('cart.index') }}'
-                      })
-                      .catch(function (error) {
-                          window.location.href = '{{ route('cart.index') }}'
-                      });
-              })
+                element.addEventListener('change',function () {
+                    const id = element.getAttribute("data-id")
+                    axios.patch(`/cart/${id}` , {
+                        quantity: this.value
+                    })
+                        .then(function (response) {
+                            window.location.href = '{{ route('cart.index') }}'
+                        })
+                        .catch(function (error) {
+                            window.location.href = '{{ route('cart.index') }}'
+                        });
+                })
             })
+
+            $(document).on('click', '.ourItem', function () {
+                var id = $(this).find("#itemId").val();
+                $("#id_delete").val(id);
+            });
+            $("#item_delete").click(function(){
+                var id = $("#id_delete").val();
+                $.post('cartDelete', {'id': id, '_token': $('input[name=_token]').val()}, function(data){
+                    window.location.href = '{{ route('cart.index') }}'
+                });
+            });
         });
 
     </script>
-
 @endsection

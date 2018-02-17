@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use App\Point;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,6 +29,12 @@ class OrderController extends Controller
     public function profile()
     {
         return view('user.profile');
+    }
+
+    public function points()
+    {
+        $points = Point::where('user_id', Auth::user()->id)->first();
+        return view('user.points', ['points' => $points]);
     }
 
     public function changeUser(Request $request)

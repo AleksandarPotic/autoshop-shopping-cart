@@ -39,8 +39,17 @@
                         <h4>Ukupna cena (bez PDV-a) : ${{Cart::subtotal() }}</h4>
                         <h4>PDV({{ $percent }}%) : ${{ $tax }}</h4>
                         <hr>
-                        @if(session('coupon'))
+                        @if(session('coupon')['type'] == 'fixed')
                             <h4>Popust(*{{ session()->get('coupon')['name'] }}) : -${{ number_format(session()->get('coupon')['discount'],2,'.',',') }}</h4>
+                        <form action="{{ route('coupon.destroy') }}" method="POST" style="display: inline">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
+                            <button type="submit" class="btn btn-link" style="color: black">Ukloni kupon</button>
+                        </form>
+                            <hr>
+                        @endif
+                        @if(session('coupon')['type'] == 'percent')
+                            <h4>Popust(*{{ session()->get('coupon')['name'] }}) : {{ session()->get('coupon')['value'] }}%</h4>
                         <form action="{{ route('coupon.destroy') }}" method="POST" style="display: inline">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
@@ -52,18 +61,20 @@
                         <h3><b>Ukupna cena : ${{ $newTotal }}</b></h3>
                         <hr>
                     </di>
-                    @if(!session('coupon'))
-                    <div class="col-lg-6 col-lg-offset-4">
-                        <h4>Imas kod za popust?</h4>
-                        <form action="{{ route('coupon.store')}}" method="POST">
-                            {{ csrf_field() }}
-                            <div class="form-group">
-                                <input type="text" id="discountCode" name="discountCode" class="form-control" placeholder="Kod..." required>
-                            </div>
-                            <button type="submit" class="btn btn-success btn-block">Primeni kod</button>
-                        </form>
-                    </div>
+                    @if(!Auth::guest())
+                        @if(!session('coupon'))
+                        <div class="col-lg-6 col-lg-offset-4">
+                            <h4>Imas kod za popust?</h4>
+                            <form action="{{ route('coupon.store')}}" method="POST">
+                                {{ csrf_field() }}
+                                <div class="form-group">
+                                    <input type="text" id="discountCode" name="discountCode" class="form-control" placeholder="Kod..." required>
+                                </div>
+                                <button type="submit" class="btn btn-success btn-block">Primeni kod</button>
+                            </form>
+                        </div>
                         @endif
+                    @endif
                 </div>
             </div>
             <div class="col-lg-6 pull-left">

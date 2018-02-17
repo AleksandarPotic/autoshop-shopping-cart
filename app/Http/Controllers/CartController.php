@@ -111,11 +111,13 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
+        $id = $request->id;
         Cart::remove($id);
 
-        return back()->with('success_message', 'Proizvod je uspesno uklonjen iz korpe!');
+        return view('user.cart');
+        //return back()->with('success_message', 'Proizvod je uspesno uklonjen iz korpe!');
     }
     /**
      * Switch save for later.

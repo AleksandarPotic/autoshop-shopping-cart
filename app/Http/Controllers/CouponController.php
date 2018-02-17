@@ -23,16 +23,28 @@ class CouponController extends Controller
         }
 
         $total = Cart::total(0,'','');
+        $subtotal = Cart::subtotal(0,'','');
 
-        if ($total >= 2000)
-        {
+        if ($coupon->type == 'percent') {
             session()->put('coupon', [
                 'name' => $coupon->discountCode,
-                'discount' => $coupon->discount(Cart::subtotal()),
+                'value' => $coupon->value,
+                'type' => $coupon->type,
+                'discount' => $coupon->discount($subtotal),
             ]);
             return redirect()->route('checkout.index')->with('success_message', 'Iskoristili ste kod za popust.');
-        }else{
-            return redirect()->route('checkout.index')->withErrors('Kod mozete iskoristiti na racun veci od $2000.');
+        }else if ($coupon->type == 'fixed') {
+            if ($total >= 2000)
+            {
+                session()->put('coupon', [
+                    'name' => $coupon->discountCode,
+                    'type' => $coupon->type,
+                    'discount' => $coupon->discount(Cart::subtotal()),
+                ]);
+                return redirect()->route('checkout.index')->with('success_message', 'Iskoristili ste kod za popust.');
+            }else{
+                return redirect()->route('checkout.index')->withErrors('Kod mozete iskoristiti na racun veci od $2000.');
+            }
         }
     }
 

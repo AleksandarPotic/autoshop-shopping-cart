@@ -9,7 +9,7 @@ Route::get('/shop/{product}','ShopController@show')->name('shop.show');
 
 Route::get('/cart','CartController@index')->name('cart.index');
 Route::post('/cart','CartController@store')->name('cart.store');
-Route::delete('/cart/{product}','CartController@destroy')->name('cart.destroy');
+Route::post('/cartDelete','CartController@destroy')->name('cart.destroy');
 Route::patch('/cart/{product}','CartController@update')->name('cart.update');
 Route::post('/cart/switchSaveForLater/{product}','CartController@switchSaveForLater')->name('cart.switchSaveForLater');
 
@@ -27,6 +27,7 @@ Route::get('/saveOrder','ThanksController@saveOrder')->name('thanks.saveOrder');
 
 Route::get('/order','OrderController@index')->name('order.index');
 Route::get('/profile','OrderController@profile')->name('order.profile');
+Route::get('/points','OrderController@points')->name('order.points');
 Route::post('/changeUser','OrderController@changeUser')->name('order.changeUser');
 
 Route::post('/homeDelivery','HomeDeliveryController@saveHomeDelivery')->name('homeDelivery.save');
