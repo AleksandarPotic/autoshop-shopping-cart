@@ -39,6 +39,8 @@
                                                 <th>Ime</th>
                                                 <th>Kolicina</th>
                                                 <th>Cena</th>
+                                                <th>Vrsta</th>
+                                                <th>Tip</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -47,6 +49,8 @@
                                                     <td>{{ $item->name }}</td>
                                                     <td>{{ $item->qty }}</td>
                                                     <td>${{ $item->price }}</td>
+                                                    <td>@if($item->options->has('species')){{ $item->options->species }}@else @endif</td>
+                                                    <td>@if($item->options->has('type')){{ $item->options->type }}@else @endif</td>
                                                 </tr>
                                             @endforeach
                                             <tr>

@@ -18,8 +18,25 @@
                 <a href="{{ route('order.points') }}" id="profile"><h4>Vasi poeni</h4></a>
             </ul>
         </div>
-        <h2>Poeni</h2>
-        <h4>Trentni broj poena: {{ $points->points }}</h4>
+        <div class="col-lg-8">
+            <h2>Poeni</h2>
+            <hr>
+            <h4>Trentni broj poena: {{ $points->points }}</h4>
+            <hr>
+            <h2>Vasi kuponi sa popustima</h2>
+            <hr>
+            <h4>
+                @foreach($coupons as $coupon)
+                    <h4>Kod: {{ $coupon->discountCode }}</h4>
+                    @if($coupon->type == 'percent')
+                        <h4>Popust: {{ $coupon->value }}%</h4>
+                    @else
+                        <h4>Popust: -${{ $coupon->value }}</h4>
+                    @endif
+                    <hr>
+                @endforeach
+            </h4>
+        </div>
     </div>
 
 @endsection

@@ -55,7 +55,7 @@ class CartController extends Controller
         if ($duplicates->isNotEmpty()){
             return "Greska";
         }
-        Cart::add($request->id, $request->name, $request->quantity, $request->price)
+        Cart::add($request->id, $request->name, $request->quantity, $request->price, ['type' => $request->type, 'species' => $request->species])
             ->associate('App\Product');
         return view('user.layer.header');
     }

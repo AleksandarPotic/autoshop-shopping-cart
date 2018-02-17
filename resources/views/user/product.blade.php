@@ -39,8 +39,56 @@
                     <input type="hidden" name="id" id="id" value="{{ $product->id }}">
                     <input type="hidden" name="name" id="name" value="{{ $product->name }}">
                     <input type="hidden" name="price" id="price" value="{{ $product->price }}">
+                    <input type="hidden" name="species" id="species_value" value="">
+                    <input type="hidden" name="type" id="type_value" value="">
                     <button type="button" id="add" class="btn btn-primary btn-block">Dodaj u korpu</button>
+                    @if(!Auth::guest())
+                        <button type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#myModal">Prilagodi</button>
+                    @endif
                 </form>
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Modal Header</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <p>Izaberi tip</p>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="type" id="type" value="tip1">Tip 1
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="type" id="type" value="tip2">Tip 2
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="type" id="type" value="tip3">Tip 3
+                                    </label>
+                                    <p>Izaberi vrstu</p>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="species" id="species" value="vrsta1">Vrsta 1
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="species" id="species" value="vrsta2">Vrsta 2
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="species" id="species" value="vrsta3">Vrsta 3
+                                    </label>
+
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" id="submit_radio" class="btn btn-success" data-dismiss="modal">Dodaj</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-lg-12">
@@ -69,13 +117,25 @@
                 })
             };
 
+            $("#submit_radio").click(function () {
+
+                var type = $("#type:checked").val();
+                var species = $("#species:checked").val();
+
+                $("#species_value").val(species);
+                $("#type_value").val(type);
+
+            });
+
             $("#add").click(function () {
                 var id = $("#id").val();
                 var name = $("#name").val();
                 var price = $("#price").val();
                 var qty = $(".quantity").val();
+                var species = $("#species_value").val();
+                var type = $("#type_value").val();
 
-                $.post('http://localhost:8000/cart', {'id': id, 'name': name, 'price': price, 'quantity': qty, '_token': $('input[name=_token]').val()}, function (data) {
+                $.post('http://localhost:8000/cart', {'id': id, 'name': name, 'price': price, 'quantity': qty, 'type': type, 'species': species,'_token': $('input[name=_token]').val()}, function (data) {
                     if (data !== "Greska"){
 
                         $("#nav_id").html(data);

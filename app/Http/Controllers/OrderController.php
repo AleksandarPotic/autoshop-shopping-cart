@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Coupon;
 use App\Order;
 use App\Point;
 use App\User;
@@ -34,7 +35,8 @@ class OrderController extends Controller
     public function points()
     {
         $points = Point::where('user_id', Auth::user()->id)->first();
-        return view('user.points', ['points' => $points]);
+        $coupons = Coupon::where('email', Auth::user()->email)->get();
+        return view('user.points', ['points' => $points, 'coupons' => $coupons]);
     }
 
     public function changeUser(Request $request)
