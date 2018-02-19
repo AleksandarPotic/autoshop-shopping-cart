@@ -27,23 +27,33 @@ class CheckoutController extends Controller
         if (session('coupon')['type'] == 'fixed') {
 
             $discount = session()->get('coupon')['discount'] ?? 0;
-            //$subtotal = Cart::subtotal(0,'','');
             $nSubtotal = Cart::subtotal(0,'','');
             $tax = $nSubtotal * $percent / 100;
             $newTax = $tax-$discount;
             $newTotal = number_format($nSubtotal + $newTax,2,'.',',');
             $newSubtotal = number_format($nSubtotal,2,'.',',');
             $newTax = number_format($newTax,2,'.',',');
-        } else {
+
+        } else if (session('coupon')['type'] == 'percent'){
 
             $discount = session()->get('coupon')['discount'] ?? 0;
-            //$subtotal = Cart::subtotal(0,'','');
             $nSubtotal = Cart::subtotal(0,'','');
             $tax = $nSubtotal * $percent / 100;
             $nTotal = $nSubtotal + $tax;
             $newTotal = number_format($nTotal - $discount - $tax,2,'.',',');
             $newSubtotal = number_format($nSubtotal,2,'.',',');
             $newTax = number_format($tax,2,'.',',');
+            
+        } else {
+
+            $discount = 0;
+            $nSubtotal = Cart::subtotal(0,'','');
+            $tax = $nSubtotal * $percent / 100;
+            $nTotal = $nSubtotal + $tax;
+            $newTotal = number_format($nTotal,2,'.',',');
+            $newSubtotal = number_format($nSubtotal,2,'.',',');
+            $newTax = number_format($tax,2,'.',',');
+
         }
 
         return view('user.checkout')->with([
