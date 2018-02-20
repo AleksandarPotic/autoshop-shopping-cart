@@ -28,6 +28,9 @@
                 <h5><b>{{ $product->details }}</b></h5>
                 <h5><b>Cena: {{ $product->presentPrice($product->price) }}</b></h5>
                 <h5>{!! $product->description !!}</h5>
+                <div id="divResult">
+
+                </div>
                 <hr>
                 <form action="{{ route('cart.store') }}" method="POST">
                     {{ csrf_field() }}
@@ -41,6 +44,7 @@
                     <input type="hidden" name="price" id="price" value="{{ $product->price }}">
                     <input type="hidden" name="species" id="species_value" value="">
                     <input type="hidden" name="type" id="type_value" value="">
+
                     <button type="button" id="add" class="btn btn-primary btn-block">Dodaj u korpu</button>
                     @if(!Auth::guest())
                         <button type="button" class="btn btn-danger btn-block" data-toggle="modal" data-target="#myModal">Prilagodi</button>
@@ -60,13 +64,13 @@
                                 <form>
                                     <p>Izaberi tip</p>
                                     <label class="radio-inline">
-                                        <input type="radio" name="type" id="type" value="tip1">Tip 1
+                                        <input type="checkbox" name="type" id="type" value="tip1">Tip 1
                                     </label>
                                     <label class="radio-inline">
-                                        <input type="radio" name="type" id="type" value="tip2">Tip 2
+                                        <input type="checkbox" name="type" id="type" value="tip2">Tip 2
                                     </label>
                                     <label class="radio-inline">
-                                        <input type="radio" name="type" id="type" value="tip3">Tip 3
+                                        <input type="checkbox" name="type" id="type" value="tip3">Tip 3
                                     </label>
                                     <p>Izaberi vrstu</p>
                                     <label class="radio-inline">
@@ -118,13 +122,18 @@
             };
 
             $("#submit_radio").click(function () {
+                var resultString = '';
+                if ($("#type:checked").length > 0){
 
-                var type = $("#type:checked").val();
+                    $("#type:checked").each(function(){
+                        resultString += $(this).val() + ' ';
+                    });
+                }
+                $("#type_value").val(resultString);
+
                 var species = $("#species:checked").val();
 
                 $("#species_value").val(species);
-                $("#type_value").val(type);
-
             });
 
             $("#add").click(function () {
@@ -134,6 +143,7 @@
                 var qty = $(".quantity").val();
                 var species = $("#species_value").val();
                 var type = $("#type_value").val();
+
 
                 $.post('http://localhost:8000/cart', {'id': id, 'name': name, 'price': price, 'quantity': qty, 'type': type, 'species': species,'_token': $('input[name=_token]').val()}, function (data) {
                     if (data !== "Greska"){
